@@ -1,0 +1,14 @@
+{
+  "name": "back",
+  "description": "back",
+  "version": "1.0.0",
+  "main": "./src/index.js",
+  "private": true,
+  "keywords": [],
+  "dependencies": {
+    "express": "^4.16.4"
+  },
+  "scripts": {
+    "dev": "node ./src/index.js"
+  }
+}

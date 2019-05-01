@@ -1,0 +1,25 @@
+{
+  "name": "common",
+  "description": "common",
+  "version": "1.0.0",
+  "main": "./src/index.js",
+  "private": true,
+  "keywords": [
+    "common"
+  ],
+  "eslintIgnore": [".eslintrc.js", "*/node_modules/*"],
+  "scripts": {
+    "test": "./node_modules/.bin/eslint .eslintrc.js"
+  },
+  "author": "TengYueXiao",
+  "engines": {
+    "node": "*"
+  },
+  "dependencies": {
+    "axios": "latest",
+    "es6-promise": "latest"
+  },
+  "devDependencies": {
+    "eslint": "latest"
+  }
+}
