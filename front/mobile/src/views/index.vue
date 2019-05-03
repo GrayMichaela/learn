@@ -13,6 +13,24 @@
     <van-col span="24" v-if="images.length>0">
       <van-notice-bar mode="closeable" :text="noticeMsg"></van-notice-bar>
     </van-col>
+    <van-col span="24">
+      <van-pull-refresh :value="index.loading" @refresh="refreshList">
+        <van-list
+          :value="index.loading"
+          :finished="index.done"
+          finished-text="我已经没有什么可以给你了"
+          @load="refreshList"
+        >
+          <van-cell
+            v-for="item in index.list"
+            :key="item.id"
+            :title="item.name"
+            :value="item.typeName"
+            :label="item.grade"
+          />
+        </van-list>
+      </van-pull-refresh>
+    </van-col>
   </van-row>
 </template>
 <script>
@@ -26,21 +44,43 @@ export default {
     };
   },
   computed: {
-    test() {
+    index() {
       return this.$store.state;
     }
   },
   mounted() {
     this.pushData();
   },
+  destroyed() {
+    this.$store.commit("resetQuery");
+  },
   methods: {
+    refreshList() {
+      this.getUserList({ pageIndex: 1 });
+    },
+    loadMore() {
+      this.getUserList({ pageIndex: this.index.query.pageIndex + 1 });
+    },
+    getUserList(query) {
+      this.$store
+        .dispatch("getUserList", {
+          ...this.index.query,
+          ...query
+        })
+        .catch(msg =>
+          this.$toast({
+            type: "fail",
+            message: msg,
+            duration: 1000
+          })
+        );
+    },
     pushData() {
       setTimeout(() => {
         this.images.push(
-          "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1556562583572&di=69320a6c45a096263c853488f35a66cc&imgtype=0&src=http%3A%2F%2Fimg1.gamersky.com%2Fimage2015%2F10%2F20151018lyq_2%2Fimage003_S.jpg",
-          "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1556562635237&di=95059d2dea2138e652d890420f3edd80&imgtype=0&src=http%3A%2F%2Fi2.hdslb.com%2Fbfs%2Farchive%2F472cc10a656e5e5501f3f9963553c32986169e38.jpg",
-          "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1870128834,2908621439&fm=26&gp=0.jpg",
-          "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1556563122871&di=9b571f2c8dfcc337f3e9af6b19fe30b2&imgtype=0&src=http%3A%2F%2Fimg3.duitang.com%2Fuploads%2Fitem%2F201511%2F09%2F20151109000614_RNjJE.thumb.700_0.jpeg"
+          "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1556908452339&di=1af2c483cd4fa6537201a2007545991c&imgtype=0&src=http%3A%2F%2Fimg2.a0bi.com%2Fupload%2Fttq%2F20140730%2F1406719313412.jpg",
+          "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1556908469499&di=69e932e0d97b118cbe00d3bb8e81b6db&imgtype=0&src=http%3A%2F%2Fimg3.duitang.com%2Fuploads%2Fitem%2F201309%2F09%2F20130909004300_3iZSN.jpeg",
+          "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1556908487780&di=637e541acd1faeee60a9d58b99509bd1&imgtype=0&src=http%3A%2F%2Fc.hiphotos.baidu.com%2Fzhidao%2Fpic%2Fitem%2F738b4710b912c8fc7177d2c5fa039245d6882135.jpg"
         );
       }, 1000);
       setTimeout(() => {
@@ -63,5 +103,6 @@ export default {
 <style lang="less" scoped>
 .img {
   width: 100%;
+  height: 100%;
 }
 </style>

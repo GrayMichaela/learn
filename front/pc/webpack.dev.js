@@ -9,10 +9,57 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
         filename: 'index.js'
     },
+    resolve: {
+        extensions: ['.js', '.ts', '.json'],
+    },
     module: {
         rules: [{
+            test: /\.(woff|woff2|eot|ttf|otf)$/,
+            use: [
+                {
+                    loader: 'file-loader',
+                    options: {
+                        name: '[path]_[name].[ext]',
+                        outputPath: 'fonts',
+                        useRelativePath: true
+                    }
+                }
+            ]
+        }, {
+            test: /\.(png|svg|jpg|jpeg|gif)$/,
+            use: [
+                {
+                    loader: 'file-loader',
+                    options: {
+                        name: '[path]_[name].[ext]',
+                        outputPath: 'images',
+                        useRelativePath: true
+                    }
+                }
+            ]
+        }, {
             test: /\.css$/,
-            use: ['style-loader', 'vue-style-loader', 'css-loader']
+            use: [
+                [{
+                    loader: 'style-loader',
+                    options: {
+                        sourceMap: true
+                    }
+                }, 'vue-style-loader', {
+                    loader: 'css-loader',
+                    options: {
+                        modules: true,
+                        minimize: true,
+                        sourceMap: true
+                    }
+                }]
+            ]
+        }, {
+            test: /\.less$/,
+            use: ['style-loader', 'css-loader', 'less-loader',]
+        }, {
+            test: /\.ts$/,
+            use: 'ts-loader'
         }, {
             test: /\.vue$/,
             use: ['vue-loader']

@@ -35,11 +35,5 @@ export default {
 <style lang="less">
 .header {
   background-color: #ae8866;
-
-  .title {
-    font-size: 20px;
-    text-align: center;
-    height: 100%;
-  }
 }
 </style>

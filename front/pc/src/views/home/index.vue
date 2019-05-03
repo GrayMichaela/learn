@@ -2,9 +2,9 @@
   <div>
     <span>{{test.count}}</span>
     <button @click="what">clicke Me</button>
+    <el-checkbox v-model="checked">备选项</el-checkbox>
   </div>
 </template>
-
 <script>
 export default {
   data() {

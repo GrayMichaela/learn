@@ -6,7 +6,19 @@ export default new VueRouter({
     mode: 'hash',
     routes: [{
         path: '',
-        name: "test",
-        component: () => import('../views/test.vue')
+        name: 'index',
+        component: () => import('../views/index.vue'),
+        children: [
+            {
+                path: 'login',
+                name: 'login',
+                component: () => import('../views/login/index.vue'),
+            },
+            {
+                path: 'home',
+                name: 'home',
+                component: () => import('../views/home/index.vue'),
+            }
+        ]
     }]
 })
