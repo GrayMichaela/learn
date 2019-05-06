@@ -7,11 +7,19 @@ module.exports = {
     entry: './src/index.js',
     output: {
         publicPath: './',
-        path: path.resolve(__dirname, 'dist'),
-        filename: 'index.js'
+        path: path.resolve(__dirname, 'dist')
     },
     module: {
         rules: [{
+            test: /\.(woff|woff2|eot|ttf|otf)$/,
+            use: ['file-loader']
+        }, {
+            test: /\.(png|svg|jpg|gif)$/,
+            use: ['file-loader']
+        }, {
+            test: /\.less$/,
+            use: ['style-loader', 'css-loader', 'less-loader']
+        }, {
             test: /\.css$/,
             use: ['style-loader', 'vue-style-loader', 'css-loader']
         }, {
@@ -19,7 +27,6 @@ module.exports = {
             use: ['vue-loader']
         }]
     },
-    devtool: 'inline-source-map',
     target: 'web',
     plugins: [
         new HtmlWebpackPlugin({
