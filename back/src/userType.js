@@ -12,12 +12,4 @@ router.get('/list', function (req, res) {
         res.json(err)
     }
 })
-/* router.use(function timeLog(req, res, next) {
-    console.log('Time: ', Date.now())
-    next()
-}) */
-/* router.get('/about', function (req, res) {
-    res.send('About birds')
-}) */
-
 module.exports = router

@@ -1,11 +1,9 @@
 const express = require('express')
 const router = express.Router()
 const connection = require('./mysql')
-const resInstans = require('./resInstans')
-/* router.use(function timeLog(req, res, next) {
-    console.log('Time: ', Date.now())
-    next()
-}) */
+const resInstans = require('./resInstans');
+const userType = require('./userType')
+router.use('/type', userType)
 router.get('/list', function (req, res) {
     const { pageIndex, pageSize } = req.query;
     try {
@@ -18,8 +16,4 @@ router.get('/list', function (req, res) {
         res.json((resInstans({ list: err, msg: 'err', state: 500 })))
     }
 })
-/* router.get('/about', function (req, res) {
-    res.send('About birds')
-}) */
-
 module.exports = router
