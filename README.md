@@ -41,3 +41,4 @@ Express:http://www.expressjs.com.cn/
 mysql:https://www.mysql.com/
 
 ps：use back need install mysql，please update 'mysql.js' in 'back/src/mysql'
+如果要使用后台代码，请安装mysql数据库并且修改'back/src/mysql'里的mysql.js的相关信息
