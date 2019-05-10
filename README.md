@@ -34,7 +34,7 @@ Web front-end technology：
 
 Back-end technology：
 
-nodeJs:nodeJs:https://nodejs.org/zh-cn/
+nodeJs:https://nodejs.org/zh-cn/
 
 Express:http://www.expressjs.com.cn/
 
