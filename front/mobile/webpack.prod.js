@@ -25,7 +25,8 @@ module.exports = {
         }, {
             test: /\.vue$/,
             use: ['vue-loader']
-        }]
+        }
+        ]
     },
     target: 'web',
     plugins: [

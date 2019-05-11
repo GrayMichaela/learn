@@ -1,12 +1,12 @@
+<style lang="less" scoped>
+@import url("./index.less");
+</style>
+
 <template>
-  <el-container>
-    <canvas class="canvasBg" ref="canvas"></canvas>
-  </el-container>
+  <div id="maps">
+    <v-map/>
+  </div>
 </template>
 <script>
-export default {
-  mounted() {
-    console.log(this.$refs.canvas);
-  }
-};
+export default {};
 </script>

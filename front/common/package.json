@@ -9,7 +9,7 @@
   ],
   "author": "TengYueXiao",
   "dependencies": {
-    "axios": "latest",
-    "es6-promise": "latest"
+    "axios": "^0.18.0",
+    "es6-promise": "^4.2.6"
   }
 }
