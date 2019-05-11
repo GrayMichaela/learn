@@ -8,8 +8,8 @@
     "test"
   ],
   "scripts": {
-    "dev": "webpack-dev-server --config webpack.dev.js",
-    "build": "webpack --config webpack.prod.js"
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --config build.js",
+    "build": "cross-env NODE_ENV=production webpack --config build.js"
   },
   "dependencies": {
     "common": "file:../common",
@@ -32,6 +32,7 @@
     "vue-template-compiler": "^2.6.7",
     "webpack": "^4.29.5",
     "webpack-cli": "^3.2.3",
-    "webpack-dev-server": "^3.2.1"
+    "webpack-dev-server": "^3.2.1",
+    "cross-env": "^5.2.0"
   }
 }
