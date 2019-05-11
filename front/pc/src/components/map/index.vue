@@ -13,9 +13,8 @@
         type: Array,
         default: () => [116.404, 39.915],
         validator: (v) => {
-          const [longitude, dimension] = v;
-          debugger
-          return !window.isNaN(window.Number(longitude)) && !window.isNaN(window.Number(dimension)) && v.length === 2
+          const [longitude, latitude] = v;
+          return !window.isNaN(window.Number(longitude)) && !window.isNaN(window.Number(latitude)) && v.length === 2
         }
       }
     },
@@ -26,9 +25,9 @@
     },
     methods: {
       loadMap() {
-        const [longitude, dimension] = this.point;
+        const [longitude, latitude] = this.point;
         const map = new BMap.Map(this.$refs.container); //初始化
-        const point = new BMap.Point(longitude, dimension); //创建坐标
+        const point = new BMap.Point(longitude, latitude); //创建坐标
         map.centerAndZoom(point, 15); //中心缩放
         //   map.panTo(new BMap.Point(116.409, 39.918)); //移动地图当前视图
         map.enableScrollWheelZoom(true); //开启鼠标滚轮缩放

@@ -30,6 +30,8 @@ Web front-end technology：
 	Rich text：looking for......
 	
 	animation:https://daneden.github.io/animate.css/
+
+	map:http://lbsyun.baidu.com/index.php?title=jspopular3.0
 	
 
 Back-end technology：
@@ -41,5 +43,7 @@ Express:http://www.expressjs.com.cn/
 mysql:https://www.mysql.com/
 
 ps：use back need install mysql，please update 'mysql.js' in 'back/src/mysql'
+
+地图我使用的是百度地图，请各位看官自行注册自己的百度地图token
 
 如果要使用后台代码，请安装mysql数据库并且修改'back/src/mysql'里的mysql.js的相关信息
