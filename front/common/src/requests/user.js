@@ -1,19 +1,31 @@
 import request from '../axios'
-import {
-    host
-} from '../host'
+import config from '../config'
 const user = {
-    list: ({ pageIndex, pageSize }) => request.get(`${host}/user/list`, {
+    list: ({
+        pageIndex,
+        pageSize
+    }) => request.get(`${config.host}/user/list`, {
         params: {
-            pageIndex, pageSize
+            pageIndex,
+            pageSize
         }
-    }).then(res => ({ total: res.total, list: res.data })),
+    }).then(res => ({
+        total: res.total,
+        list: res.data
+    })),
     type: {
-        list: ({ pageIndex, pageSize }) => request.get(`${host}/user/type/list`, {
+        list: ({
+            pageIndex,
+            pageSize
+        }) => request.get(`${config.host}/user/type/list`, {
             params: {
-                pageIndex, pageSize
+                pageIndex,
+                pageSize
             }
-        }).then(res => ({ total: res.total, list: res.data }))
+        }).then(res => ({
+            total: res.total,
+            list: res.data
+        }))
     }
 };
 export default user;

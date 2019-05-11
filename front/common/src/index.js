@@ -1,5 +1,8 @@
 import 'es6-promise'
 import actions from './requests/index'
-export default {
-  actions
+import config from './config'
+const common = {
+  actions,
+  config
 }
+export default common

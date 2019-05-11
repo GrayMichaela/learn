@@ -1,4 +1,3 @@
-// import actions from 'common/src'
 import Vue from 'vue'
 import app from './app.vue'
 import router from './router/index'
