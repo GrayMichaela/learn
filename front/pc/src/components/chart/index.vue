@@ -28,9 +28,12 @@
         mounted() {
             this.loadChart();
         },
+        destroyed() {
+            this.chart.dispose()
+        },
         methods: {
-            loadChart(config=false) {
-                this.chart.setOption(this.config,config);
+            loadChart(config = false) {
+                this.chart.setOption(this.config, config);
             }
         },
         watch: {
