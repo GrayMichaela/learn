@@ -1,5 +1,11 @@
+import request from '../axios'
+import config from '../config'
 import user from './user'
-const requests = {
-    user
-}
-export default requests; 
+export default {
+    user,
+    error: ({ msg, type }) => request.post(`${config.host}/error`, {
+        msg,
+        type,
+        from: 'front',
+    })
+};

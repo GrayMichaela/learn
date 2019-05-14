@@ -5,6 +5,7 @@ import store from './store/index'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import './styles/reset.less';
+import './config'
 Vue.use(ElementUI);
 import cookie from './cookie.js';
 import './components/index';

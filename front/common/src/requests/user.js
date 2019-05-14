@@ -1,6 +1,6 @@
 import request from '../axios'
 import config from '../config'
-const user = {
+export default {
     list: ({
         pageIndex,
         pageSize
@@ -28,4 +28,3 @@ const user = {
         }))
     }
 };
-export default user;

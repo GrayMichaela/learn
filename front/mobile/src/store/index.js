@@ -22,10 +22,10 @@ export default new Vuex.Store({
         resetQuery(state) {
             state.query = initQuery
         },
-        changeLoading(state, { name, status }) {
-            state[name] = !!status
+        setLoading(state, { name, status }) {
+            state[name] = status
         },
-        getUserListSuccess(state, { list, total, query }) {
+        setUserList(state, { list, total, query }) {
             state.done = list.length < query.pageSize
             state.list = list
             state.total = total
@@ -34,13 +34,14 @@ export default new Vuex.Store({
     },
     actions: {
         getUserList({ commit }, query) {
-            commit('changeLoading', { name: 'loading', status: 1 })
+            commit('setLoading', { name: 'loading', status: true })
             return common.actions.user.list(query).then(({ list, total }) => {
-                commit('getUserListSuccess', { list, total, query })
+                commit('setUserList', { list, total, query })
             }).finally(() => {
-                commit('changeLoading', { name: 'loading', status: 0 })
+                commit('setLoading', { name: 'loading', status: false })
             })
-        }
+        },
+
     },
     modules: {
         // test
