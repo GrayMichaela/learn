@@ -1,14 +1,15 @@
-const mode = process.env.NODE_ENV || 'development';
+const env = process.env.NODE_ENV || 'development';
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const webpack = require('webpack');
 const buildModules = {
-    mode,
+    mode: env,
     entry: './src/index.js',
     output: {
-        path: path.resolve(__dirname, 'dist'),
-        filename: 'index.js'
+        path: path.resolve('./', 'dist'),
+        filename: 'index.js',
+        publicPath: './'
     },
     module: {
         rules: [{
@@ -49,6 +50,8 @@ const buildModules = {
             host: '0.0.0.0'
         };
     },
-    production: modeles => { }
-}[mode])(buildModules)
+    production: modeles => {
+        modeles.devtool = 'hidden-source-map'
+    }
+} [env])(buildModules)
 module.exports = buildModules;
