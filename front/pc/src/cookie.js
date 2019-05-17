@@ -1,4 +1,3 @@
-
 export default {
     setToken(token = '') {
         window.localStorage.setItem('token', token)

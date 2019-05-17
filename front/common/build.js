@@ -1,13 +1,14 @@
-const env = process.env.NODE_ENV || 'development';
+const env = process.env.NODE_ENV;
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
+const path = require('path');
 const webpack = require('webpack');
 module.exports = {
     mode: env,
     entry: './src/index.js',
     output: {
         filename: 'index.js',
-        publicPath: './'
+        path: path.resolve(__dirname, 'dist')
     },
     module: {
         rules: [{

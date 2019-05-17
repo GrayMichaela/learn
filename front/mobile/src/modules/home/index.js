@@ -1,5 +1,6 @@
+import common from 'common'
 export default {
-    router: {
+    route: {
         path: '',
         name: "home",
         component: () => import('./index.vue'),

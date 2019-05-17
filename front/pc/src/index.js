@@ -7,11 +7,14 @@ import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 Vue.use(ElementUI);
 
-import './styles/reset.less';
-import cookie from './cookie.js';
 import './components/index';
+
+import './styles/animate.css';
+
+import cookie from './cookie.js';
 Vue.prototype.$cookie = cookie;
-window.$app = new Vue({
+
+new Vue({
     el: "#app",
     router,
     store,

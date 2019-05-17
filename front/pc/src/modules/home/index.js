@@ -1,5 +1,5 @@
 export default {
-    router: {
+    route: {
         path: 'home',
         name: "home",
         component: () => import('./index.vue'),

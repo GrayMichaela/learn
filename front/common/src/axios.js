@@ -1,10 +1,9 @@
 import axios from 'axios'
 const axiosInstance = axios.create({
-    baseURL: 'https://some-domain.com/api/',
-    timeout: 3000,
+    timeout: 2000,
     headers: {
         'sourceId': '1'
     }
 });
-axiosInstance.interceptors.response.use(res => res.data, err => Promise.reject(err.message));
+axiosInstance.interceptors.response.use(res => res.data, err => Promise.reject({ url: err.config.url, msg: err.message }));
 export default axiosInstance
