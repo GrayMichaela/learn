@@ -1,13 +1,11 @@
 const env = process.env.NODE_ENV || 'development';
-const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const webpack = require('webpack');
-const buildModules = {
+module.exports = {
     mode: env,
     entry: './src/index.js',
     output: {
-        path: path.resolve('./', 'dist'),
         filename: 'index.js',
         publicPath: './'
     },
@@ -30,28 +28,14 @@ const buildModules = {
         }]
     },
     target: 'web',
+    devtool: 'inline-source-map',
     plugins: [
         new HtmlWebpackPlugin({
             template: './src/index.html',
-            ak: ''
+            ak: 'nk4O8FeX4GgoCUrTyvOfn83fT6P01Lju'
         }),
-        new VueLoaderPlugin()
+        new VueLoaderPlugin(),
+        new webpack.NamedModulesPlugin(),
+        new webpack.HotModuleReplacementPlugin()
     ]
-};
-({
-    development: modeles => {
-        modeles.devtool = 'eval';
-        modeles.plugins.push(new webpack.NamedModulesPlugin(),
-            new webpack.HotModuleReplacementPlugin());
-        modeles.devServer = {
-            contentBase: './dist',
-            hot: true,
-            port: 80,
-            host: '0.0.0.0'
-        };
-    },
-    production: modeles => {
-        modeles.devtool = 'hidden-source-map'
-    }
-} [env])(buildModules)
-module.exports = buildModules;
+};;
