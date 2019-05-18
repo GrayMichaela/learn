@@ -22,10 +22,13 @@ module.exports = {
             use: ['style-loader', 'css-loader', 'less-loader']
         }, {
             test: /\.css$/,
-            use: ['style-loader', 'vue-style-loader', 'css-loader']
+            use: ['vue-style-loader', 'css-loader']
         }, {
             test: /\.vue$/,
             use: ['vue-loader']
+        }, {
+            test: /\.(mp4)$/,
+            use: ['file-loader']
         }]
     },
     target: 'web',

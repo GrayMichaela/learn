@@ -1,10 +1,10 @@
 <template>
   <transition name="flash">
     <van-row>
-      <van-col span="24">
+      <!-- <van-col span="24">
         <van-nav-bar/>
         <van-nav-bar :title="title" left-arrow fixed @click-left="$router.back()"/>
-      </van-col>
+      </van-col>-->
       <van-col span="24">
         <router-view/>
       </van-col>

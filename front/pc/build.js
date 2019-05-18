@@ -8,7 +8,7 @@ module.exports = merge(mode, {
     devServer: {
         contentBase: './dist',
         hot: true,
-        port: 81,
+        port: 80,
         host: '0.0.0.0'
     }
 });

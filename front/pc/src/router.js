@@ -11,7 +11,7 @@ export default new VueRouter({
         name: 'index',
         component: () => import('./modules/index.vue'),
         children: [
-            home.router, login.router
+            home.route, login.route
         ]
     }]
 })
