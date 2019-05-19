@@ -5,7 +5,6 @@
 <template>
   <transition>
     <el-container class="container">
-      <!-- <video class="bgv" autoplay loop src="../../assets/starsky.mp4"></video> -->
       <el-main class="main">
         <el-form
           :inline-message="true"
@@ -26,13 +25,7 @@
             />
           </el-form-item>
           <el-form-item class="btn">
-            <el-button
-              :loading="login.loading"
-              type="primary"
-              icon="el-icon-edit"
-              round
-              @click="signIn"
-            >Go!</el-button>
+            <el-button :loading="login.loading" type="primary" round @click="signIn">Go!</el-button>
           </el-form-item>
         </el-form>
       </el-main>
@@ -40,47 +33,53 @@
   </transition>
 </template>
 <script>
+let a=function(a,
+b){}
 export default {
-  data() {
-    return {
-      form: {
-        cipher: ""
-      },
-      rules: {
-        cipher: [
-          {
-            min: 6,
-            max: 12,
-            required: true,
-            message: "请输入您的口令",
-            trigger: "blur"
-          }
-        ]
-      }
-    };
-  },
-  computed: {
-    login() {
-      return this.$store.state.login;
-    }
-  },
-  mounted() {},
-  methods: {
-    validate() {
-      return new Promise((resolve, reject) => {
-        this.$refs.form.validate(valid => {
-          valid ? resolve(this.form) : reject("请认真填写您的口令");
-        });
-      });
-    },
-    signIn() {
-      debugger;
-      this.validate()
-        .then(form => {
-          console.log(form);
-        })
-        .catch(err => {});
-    }
-  }
+	data() 
+	{
+		return {
+			form: {
+				cipher: ""
+			},
+			rules: {
+				cipher: [
+					{
+						min: 6,
+						max: 12,
+						required: true,
+						message: "请输入您的口令",
+						trigger: "blur"
+					}
+				]
+			}
+		};
+	},
+	computed: {
+		login() 
+		{
+			return this.$store.state.login;
+		}
+	},
+	mounted() {},
+	methods: {
+    validate()
+		{
+			return new Promise((resolve, reject) => 
+			{
+				this.$refs.form.validate(valid => 
+				{
+					valid ? resolve(this.form) : reject("请认真填写您的口令");
+				});
+			});
+		},
+		signIn() 
+		{
+			this.validate().then(form => 
+			{
+				form ? 1 : 2;
+			});
+		}
+	}
 };
 </script>
