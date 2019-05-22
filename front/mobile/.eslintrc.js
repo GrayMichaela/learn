@@ -36,16 +36,14 @@ module.exports = {
 			"always"
 		],//强制分号
 		"array-bracket-newline": ["error",  { "multiline": true }],//[]前强制换行
-        "array-bracket-spacing": ["error", "never"],//[]内禁止出现空格
+        	"array-bracket-spacing": ["error", "never"],//[]内禁止出现空格
 		"array-element-newline": ["error", { "multiline": true }],//强制数组元素间出现换行
 		"block-spacing": ["error", "never"],//禁止或强制在代码块中开括号前和闭括号后有空格
-		"brace-style": ["error", "allman",{"allowSingleLine":true}],//大括号风格要求
+		// "brace-style": ["error", "allman",{"allowSingleLine":true}],//大括号风格要求
 		"camelcase": ["error", {
             "properties": "always"
 		}],//强制驼峰
-		"comma-dangle": ["error", {
-            "comma-dangle": ["error", "never"]
-		}],//禁止尾逗号
+		"comma-dangle": ["error", "never"],//禁止尾逗号
 		"comma-spacing": ["error", {
             "before": false,
             "after": false
@@ -95,9 +93,7 @@ module.exports = {
 		"one-var": ["error", {
             "var": "consecutive",
             "let": "consecutive",
-            "const": "consecutive",
-            "initialized": "consecutive",
-            "uninitialized": "consecutive",
+            "const": "consecutive"
 		}],//连续声明
 		"one-var-declaration-per-line": ["error", "always"],//var声明换行
 		"operator-assignment": ["error", "always"],//operator-assignment
@@ -109,14 +105,16 @@ module.exports = {
 	  "operator-linebreak": ["error", "none"],//禁止前后有换行符
 	  "padded-blocks": ["error", "never"],//禁止块内连续换行
 	  "padding-line-between-statements": ["error", {
-		  "blankLine":"never"
+		  "blankLine":"never",
+		  "prev":"*",
+		  "next":"*",
 	  }],//有争议
 	  "quote-props": ["error", "consistent", {
             "keywords": true,
             "numbers": true
 	  }],//属性名引号
 	  "space-before-blocks": ["error", "never"],
-	  "space-before-function-paren": ["error", "never "],
+	  "space-before-function-paren": ["error", "never"],
 	  "space-in-parens": ["error", "never"],
 	  "space-infix-ops": ["error", {
             "int32Hint": false
@@ -152,6 +150,109 @@ module.exports = {
 	  "prefer-template": "error",
 	  "rest-spread-spacing": ["error", "never"],
 	  "template-curly-spacing": ["error", "never"],
-        "yield-star-spacing": ["error", "both"]
+	  "yield-star-spacing": ["error", "both"],
+	  "vue/use-v-on-exact": ["error"],
+	  "vue/no-async-in-computed-properties": ["error"],
+	  "vue/no-dupe-keys": ["error"],
+	  "vue/no-duplicate-attributes": ["error"],
+	  "vue/no-reserved-keys": ["error"],
+	  "vue/no-shared-component-data": ["error"],
+	  "vue/no-side-effects-in-computed-properties": ["error"],
+	  "vue/no-template-key": ["error"],
+	  "vue/no-textarea-mustache": ["error"],
+	  "vue/no-unused-components": ["error"],
+	  "vue/no-unused-vars": ["error"],
+	  "vue/require-component-is": ["error"],
+	  "vue/no-use-v-if-with-v-for": ["error", {
+		"allowUsingIterationVar": false
+	    }],
+	    "vue/return-in-computed-property": ["error", {
+		"treatUndefinedAsUnspecified": true
+	    }],
+	  "vue/require-component-is": ["error"],
+	  "vue/require-prop-type-constructor": ["error"],
+	  "vue/require-render-return": ["error"],
+	  "vue/require-v-for-key": ["error"],
+	  "vue/require-valid-default-prop": ["error"],
+	  "vue/use-v-on-exact": ["error"],
+	  "vue/valid-template-root": ["error"],
+	  "vue/valid-v-bind": ["error"],
+	  "vue/valid-v-cloak": ["error"],
+	  "vue/valid-v-else-if": ["error"],
+	  "vue/valid-v-else": ["error"],
+	  "vue/valid-v-for": ["error"],
+	  "vue/valid-v-html": ["error"],
+	  "vue/valid-v-if": ["error"],
+	  "vue/valid-v-model": ["error"],
+	  "vue/valid-v-on": ["error"],
+	  "vue/valid-v-show": ["error"],
+	  "vue/valid-v-once": ["error"],
+	  "vue/valid-v-pre": ["error"],
+	  "vue/valid-v-text": ["error"],
+	  "vue/html-end-tags": ["error"],
+	  "vue/attribute-hyphenation": ["error", "always"],
+	  "vue/html-closing-bracket-newline": ["error", {
+		"singleline": "never",
+		"multiline": "never"
+	    }],
+	    "vue/html-closing-bracket-spacing": ["error", {
+		"startTag": "never",
+		"endTag": "never",
+		"selfClosingTag": "always"
+	    }],
+	    "vue/html-indent": ["error", "tab", {
+		"attribute": 0,
+		"baseIndent": 0,
+		"closeBracket": 0,
+		"alignAttributesVertically": true
+	    }],
+	    "vue/html-quotes": ["error", "double"],
+	    "vue/html-self-closing": ["error", {
+		"html": {
+		  "void": "always",
+		  "normal": "always",
+		  "component": "always"
+		},
+		"svg": "always",
+		"math": "always"
+	    }],
+	    "vue/max-attributes-per-line": ["error", {
+		"singleline": Infinity,
+		"multiline": {
+		  "max": Infinity,
+		  "allowFirstLine": false
+		}
+	    }],
+	    "vue/multiline-html-element-content-newline": ["error", {
+		"ignoreWhenEmpty": true,
+		"allowEmptyLines": false
+	  }]
+	  ,"vue/mustache-interpolation-spacing": ["error", "never"]
+	  ,"vue/name-property-casing": ["error", "kebab-case"]
+	  ,"vue/no-multi-spaces": ["error", {
+		"ignoreProperties": false
+	    }]
+	  ,"vue/no-spaces-around-equal-signs-in-attribute": ["error"]
+	  ,"vue/no-template-shadow": ["error"]
+	  ,"vue/prop-name-casing": ["error", "camelCase"]
+	  ,"vue/require-default-prop": ["error"]
+	  ,"vue/require-prop-types": ["error"]
+	  ,"vue/singleline-html-element-content-newline": ["error", {
+		"ignoreWhenNoAttributes": false,
+		"ignoreWhenEmpty": false,
+	    }]
+	    ,"vue/v-bind-style": ["error", "shorthand"]
+	    ,"vue/v-on-style": ["error", "shorthand"]
+	    ,"vue/this-in-template": ["error", "never"]
+	    ,"vue/array-bracket-spacing":["error", "never"]
+	    ,"vue/arrow-spacing":["error", {
+            "after": false,
+            "before": false
+	  }]
+	  ,"vue/block-spacing":["error", "never"]
+	  ,"vue/brace-style":["error", "allman",{"allowSingleLine":true}]
+	  ,"vue/camelcase":["error", {
+            "properties": "always"
+		}]
 	}
 };

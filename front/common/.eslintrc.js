@@ -3,10 +3,7 @@ module.exports = {
 		"browser": true,
 		"es6": true
 	},
-	"extends": [
-		"eslint:recommended",
-		"plugin:vue/essential"
-	],
+	"extends": "eslint:recommended",
 	"globals": {
 		"Atomics": "readonly",
 		"SharedArrayBuffer": "readonly"
@@ -15,9 +12,6 @@ module.exports = {
 		"ecmaVersion": 2018,
 		"sourceType": "module"
 	},
-	"plugins": [
-		"vue"
-	],
 	"rules": {
 		"indent": [
 			"error",
@@ -36,16 +30,14 @@ module.exports = {
 			"always"
 		],//强制分号
 		"array-bracket-newline": ["error",  { "multiline": true }],//[]前强制换行
-        "array-bracket-spacing": ["error", "never"],//[]内禁止出现空格
+        	"array-bracket-spacing": ["error", "never"],//[]内禁止出现空格
 		"array-element-newline": ["error", { "multiline": true }],//强制数组元素间出现换行
 		"block-spacing": ["error", "never"],//禁止或强制在代码块中开括号前和闭括号后有空格
 		"brace-style": ["error", "allman",{"allowSingleLine":true}],//大括号风格要求
 		"camelcase": ["error", {
             "properties": "always"
 		}],//强制驼峰
-		"comma-dangle": ["error", {
-            "comma-dangle": ["error", "never"]
-		}],//禁止尾逗号
+		"comma-dangle": ["error", "never"],//禁止尾逗号
 		"comma-spacing": ["error", {
             "before": false,
             "after": false
@@ -95,9 +87,7 @@ module.exports = {
 		"one-var": ["error", {
             "var": "consecutive",
             "let": "consecutive",
-            "const": "consecutive",
-            "initialized": "consecutive",
-            "uninitialized": "consecutive",
+            "const": "consecutive"
 		}],//连续声明
 		"one-var-declaration-per-line": ["error", "always"],//var声明换行
 		"operator-assignment": ["error", "always"],//operator-assignment
@@ -109,14 +99,16 @@ module.exports = {
 	  "operator-linebreak": ["error", "none"],//禁止前后有换行符
 	  "padded-blocks": ["error", "never"],//禁止块内连续换行
 	  "padding-line-between-statements": ["error", {
-		  "blankLine":"never"
+		  "blankLine":"never",
+		  "prev":"*",
+		  "next":"*",
 	  }],//有争议
 	  "quote-props": ["error", "consistent", {
             "keywords": true,
             "numbers": true
 	  }],//属性名引号
 	  "space-before-blocks": ["error", "never"],
-	  "space-before-function-paren": ["error", "never "],
+	  "space-before-function-paren": ["error", "never"],
 	  "space-in-parens": ["error", "never"],
 	  "space-infix-ops": ["error", {
             "int32Hint": false
