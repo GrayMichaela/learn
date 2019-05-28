@@ -10,6 +10,11 @@ module.exports = {
 	"globals": {
 		"Atomics": "readonly",
 		"SharedArrayBuffer": "readonly"
+		,"require":false,
+		"process":false,
+		"module":false,
+		"__dirname":false,
+		"import":false
 	},
 	"parserOptions": {
 		"ecmaVersion": 2018,

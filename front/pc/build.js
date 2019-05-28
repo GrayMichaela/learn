@@ -1,14 +1,58 @@
-const mode = require('common/build.js');
-const path = require('path');
-const merge = require('webpack-merge');
-module.exports = merge(mode, {
-    output: {
-        path: path.resolve(__dirname, 'dist')
-    },
-    devServer: {
-        contentBase: './dist',
-        hot: true,
-        port: 80,
-        host: '0.0.0.0'
-    }
-});
+const env = process.env.NODE_ENV;
+const HtmlWebpackPlugin = require("html-webpack-plugin")
+	,VueLoaderPlugin = require("vue-loader/lib/plugin")
+	,path = require("path")
+	,webpack = require("webpack");
+module.exports = {
+	mode:env
+	,entry:"./src/index.js"
+	,output:{
+		filename:"index.js"
+		,path:path.resolve(__dirname,"dist")
+	}
+	,module:{
+		rules:[
+			{
+				test:/\.(woff|woff2|eot|ttf|otf)$/
+				,use:["file-loader"]
+			}
+			,{
+				test:/\.(png|svg|jpg|gif)$/
+				,use:["file-loader"]
+			}
+			,{
+				test:/\.less$/
+				,use:["style-loader","css-loader","less-loader"]
+			}
+			,{
+				test:/\.css$/
+				,use:["vue-style-loader","css-loader"]
+			}
+			,{
+				test:/\.vue$/
+				,use:["vue-loader"]
+			}
+			,{
+				test:/\.(mp4|avi|m4a|mp3)$/
+				,use:["file-loader"]
+			}
+		]
+	}
+	,target:"web"
+	,devtool:"inline-source-map"
+	,devServer:{
+		contentBase:"./dist"
+		,hot:true
+		,port:80
+		,host:"0.0.0.0"
+	}
+	,plugins:[
+		new HtmlWebpackPlugin({
+			template:"./src/index.html"
+			,ak:"nk4O8FeX4GgoCUrTyvOfn83fT6P01Lju"
+		})
+		,new VueLoaderPlugin()
+		,new webpack.NamedModulesPlugin()
+		,new webpack.HotModuleReplacementPlugin()
+	]
+};

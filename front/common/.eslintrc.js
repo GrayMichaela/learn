@@ -6,7 +6,9 @@ module.exports = {
 	"extends": "eslint:recommended",
 	"globals": {
 		"Atomics": "readonly",
-		"SharedArrayBuffer": "readonly"
+		"SharedArrayBuffer": "readonly",
+		"require":false,
+		"import":false
 	},
 	"parserOptions": {
 		"ecmaVersion": 2018,
@@ -33,7 +35,7 @@ module.exports = {
         	"array-bracket-spacing": ["error", "never"],//[]内禁止出现空格
 		"array-element-newline": ["error", { "multiline": true }],//强制数组元素间出现换行
 		"block-spacing": ["error", "never"],//禁止或强制在代码块中开括号前和闭括号后有空格
-		"brace-style": ["error", "allman",{"allowSingleLine":true}],//大括号风格要求
+		// "brace-style": ["error", "allman",{"allowSingleLine":true}],//大括号风格要求
 		"camelcase": ["error", {
             "properties": "always"
 		}],//强制驼峰

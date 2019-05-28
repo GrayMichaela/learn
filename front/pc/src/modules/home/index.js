@@ -1,6 +1,6 @@
 import home from"./index.vue";
 import common from"common";
-const initQuery = {};
+import ajax from"../../axios";
 export default{
 	route:{
 		path:"home"
@@ -12,6 +12,7 @@ export default{
 		namespace:true
 		,state:{
 			total:0
+			,list:[]
 			,query:{
 				pageIndex:0
 				,pageSize:15
@@ -19,35 +20,22 @@ export default{
 			,loading:false
 		}
 		,mutations:{
-			resetQuery(state){
-				state.query = initQuery;
-			}
-			,setLoading(state,{
-				name,
-				status
-			}){
+			setLoading(state,{name,status}){
 				state[name] = status;
 			}
 		}
 		,actions:{
 			getUserList({commit},query){
-				commit("setLoading",{
-					name:"loading"
-					,status:true
-				});
-				return common.actions.user.list(query).then(({
-					list,
-					total
-				})=>{
-					commit("setUserList",{
-						list
-						,total
-						,query
-					});
-				}).finally(()=>{
-					commit("setLoading",{
-						name:"loading"
-						,status:false
+				commit("setLoading",{name:"loading",status:true});
+				return common.actions.user.list(query).then(args=>{
+					ajax({
+						method:args.methods
+						,url:args.url
+						,data:args.params
+					}).then(({data:{list,total}})=>{
+						commit("setUserList",{list,total,query});
+					}).catch(err=>Promise.reject(err)).finally(()=>{
+						commit("setLoading",{name:"loading",status:false});
 					});
 				});
 			}
