@@ -1,7 +1,7 @@
 import config from"../config";
 export default{
 	list:({pageIndex,pageSize})=>new Promise((resolve,reject)=>{
-		pageIndex && pageSize ? resolve({
+		(()=>pageIndex && pageSize)() ? resolve({
 			url:`${config.host}/user/list`
 			,methods:"get"
 			,params:{pageIndex,pageSize}
@@ -9,7 +9,7 @@ export default{
 	})
 	,type:{
 		list:({pageIndex,pageSize})=>new Promise((resolve,reject)=>{
-			pageIndex && pageSize ? resolve({
+			(pageIndex && pageSize) ? resolve({
 				url:`${config.host}/user/type/list`
 				,methods:"get"
 				,params:{pageIndex,pageSize}

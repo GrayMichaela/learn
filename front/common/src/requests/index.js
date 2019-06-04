@@ -3,7 +3,7 @@ import user from"./user";
 export default{
 	user
 	,error:({msg,type})=>new Promise((resolve,reject)=>{
-		type && msg ? resolve({
+		(()=>type && msg)() ? resolve({
 			url:`${config.host}/error`
 			,methods:"post"
 			,params:{
