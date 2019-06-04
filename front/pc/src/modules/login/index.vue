@@ -3,34 +3,34 @@
 </style>
 
 <template>
-<transition>
-	<el-container class="container">
-		<el-main class="main">
-			<el-form
-			:inline-message="true"
-			ref="form"
-			:rules="rules"
-			label-position="right"
-			:model="form"
-			label-width="100px">
-				<el-form-item label="口令" prop="cipher">
-					<el-input
-					:readonly="login.loading"
-					:minlength="6"
-					:maxlength="12"
-					v-model="form.cipher"
-					clearable
-					show-password />
-				</el-form-item>
-				<el-form-item class="btn">
-					<el-button :loading="login.loading" type="primary" round @click="signIn">
-						Go!
-					</el-button>
-				</el-form-item>
-			</el-form>
-		</el-main>
-	</el-container>
-</transition>
+	<transition>
+		<el-container class="container">
+			<el-main class="main">
+				<el-form
+					:inline-message="true"
+					ref="form"
+					:rules="rules"
+					label-position="right"
+					:model="form"
+					label-width="100px">
+					<el-form-item label="口令" prop="cipher">
+						<el-input
+							:readonly="login.loading"
+							:minlength="6"
+							:maxlength="12"
+							v-model="form.cipher"
+							clearable
+							show-password />
+					</el-form-item>
+					<el-form-item class="btn">
+						<el-button :loading="login.loading" type="primary" round @click="signIn">
+							Go!
+						</el-button>
+					</el-form-item>
+				</el-form>
+			</el-main>
+		</el-container>
+	</transition>
 </template>
 <script>
 export default{
@@ -57,7 +57,8 @@ export default{
 			return this.$store.state.login;
 		}
 	}
-	,mounted(){}
+	,mounted(){
+	}
 	,methods:{
 		validate()
 		{

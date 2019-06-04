@@ -1,9 +1,9 @@
 import Vue from"vue";
 import VueRouter from"vue-router";
 Vue.use(VueRouter);
-import home from"./modules/home/index";
-import login from"./modules/login/index";
-import index from"./modules/index.vue";
+import home from"./modules/home";
+import login from"./modules/login";
+import index from"./modules";
 export default new VueRouter({
 	base:"/"
 	,mode:"hash"

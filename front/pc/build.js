@@ -2,7 +2,8 @@ const env = process.env.NODE_ENV;
 const HtmlWebpackPlugin = require("html-webpack-plugin")
 	,VueLoaderPlugin = require("vue-loader/lib/plugin")
 	,path = require("path")
-	,webpack = require("webpack");
+	,webpack = require("webpack")
+	,autoprefixer = require("autoprefixer");
 module.exports = {
 	mode:env
 	,entry:"./src/index.js"
@@ -30,16 +31,29 @@ module.exports = {
 			}
 			,{
 				test:/\.vue$/
-				,use:["vue-loader"]
+				,use:{
+					loader:"vue-loader"
+					,options:{
+						postcss:[autoprefixer]
+						,loaders:{js:{loader:"babel-loader"}}
+					}
+				}
 			}
 			,{
 				test:/\.(mp4|avi|m4a|mp3)$/
 				,use:["file-loader"]
 			}
+			,{
+				test:/\.js$/
+				,exclude:/node_modules/
+				,include:[/src/]
+				,use:["babel-loader"]
+			}
 		]
 	}
+	,resolve:{extensions:[".js",".vue"]}
 	,target:"web"
-	,devtool:"inline-source-map"
+	,devtool:"eval-source-map"
 	,devServer:{
 		contentBase:"./dist"
 		,hot:true
