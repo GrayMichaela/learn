@@ -1,5 +1,5 @@
 <style lang="less" scoped>
-  @import url("./index.less");
+  @import "./index.less";
 </style>
 <template>
 <div class="container" ref="container" />

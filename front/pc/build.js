@@ -51,7 +51,13 @@ module.exports = {
 			}
 		]
 	}
-	,resolve:{extensions:[".js",".vue"]}
+	,resolve:{
+		extensions:[".js",".vue"],
+		alias:{
+			'@':path.resolve(__dirname, 'src'),
+
+		}
+	}
 	,target:"web"
 	,devtool:"eval-source-map"
 	,devServer:{

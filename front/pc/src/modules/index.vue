@@ -1,17 +1,16 @@
 <template>
-    <router-view />
+<v-map/>
+    <!-- <router-view /> -->
 </template>
 
 <script>
+import Vmap from '@/components/map/index'
     export default {
+        components:{Vmap},
         mounted() {
-            !!this.$cookie.getToken() ?
-                this.$router.replace({
-                    name: "home"
-                }) :
-                this.$router.replace({
-                    name: "login"
-                });
+            // this.$router.replace({
+            //         name: "home"
+            //     })
         }
     };
 </script>
