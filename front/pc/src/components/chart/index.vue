@@ -2,7 +2,7 @@
     @import url('./index.less');
 </style>
 <template>
-<div class="chart" ref="chart" />
+	<div class="chart" ref="chart" />
 </template>
 <script>
 import echarts from"echarts";
